@@ -25,28 +25,56 @@ const Home = () => {
         <h1>Who Made?</h1>
         <div className="teammembers">
           Kwon
-          <div>Team Leader</div>
-          <ul>Project Leading</ul>
-          <ul>Minting Page Implement</ul>
-          {/* <img src="깃허브 로고 이미지" alt=""></img> */}
+          <ul>Team Leader</ul>
+          <li>Project Setup, Management</li>
+          <li>Minting Page Implement</li>
+          <a
+            href="https://github.com/Robin-the-dev"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="images/GitHub-Mark-64px.png"
+              alt=""
+              height="20"
+              width="20"
+            ></img>
+          </a>
         </div>
         <div className="teammembers">
           Baek
-          <div>Team Member</div>
-          <ul>Tokenlist Page Implement</ul>
-          <ul>Page Routing</ul>
+          <ul>Team Member</ul>
+          <li>Page Routing</li>
+          <li>Tokenlist Page Implement</li>
+          <a href="https://github.com/BEB03" target="_blank" rel="noreferrer">
+            <img
+              src="images/GitHub-Mark-64px.png"
+              alt=""
+              height="20"
+              width="20"
+            ></img>
+          </a>
         </div>
         <div className="teammembers">
           Yang
-          <div>Team Member</div>
-          <ul>Home Page Implement</ul>
-          <ul>Deploy Smart Contract</ul>
+          <ul>Team Member</ul>
+          <li>Deploy Smart Contract</li>
+          <li>Home Page Implement</li>
+          <a href="https://github.com/wh7787" target="_blank" rel="noreferrer">
+            <img
+              src="images/GitHub-Mark-64px.png"
+              alt=""
+              height="20"
+              width="20"
+            ></img>
+          </a>
         </div>
       </div>
       <div className="partner">
         <h1>Partners</h1>
-        <div>codestates</div>
-        <div>metamask</div>
+        <div>Codestates</div>
+        <div>MetaMask</div>
+        {/* <div>Kaikas</div> */}
       </div>
       <div className="contact">
         <h2>Contact</h2>
@@ -57,7 +85,7 @@ const Home = () => {
           rel="noreferrer"
         >
           <img
-            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+            src="images/GitHub-Mark-64px.png"
             alt=""
             height="40"
             width="40"
@@ -69,12 +97,7 @@ const Home = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png?20200221181224"
-            alt=""
-            height="40"
-            width="40"
-          ></img>
+          <img src="images/notion-logo.png" alt="" height="40" width="40"></img>
         </a>
       </div>
     </div>
