@@ -11,6 +11,7 @@ import "./App.css";
 // Import pages
 import Home from "./pages/Home/Home";
 import TokenList from "./pages/TokenList/TokenList";
+import Mint from './pages/Mint/Mint';
 
 // Import components
 import NavBar from "./components/NavBar/NavBar";
@@ -43,8 +44,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tokenlist" element={<TokenList />} />
-        {/* <Route path="/mint" element={<Mint />} /> */}
+        <Route path="/tokenlist" element={<TokenList web3={web3} account={account} />} />
+        <Route path="/mint" element={<Mint web3={web3} account={account} />} />
       </Routes>
 
       <button
@@ -56,8 +57,6 @@ function App() {
         Connect metamask
       </button>
       <div className="userInfo">Address: {account}</div>
-      <Home />
-      <TokenList web3={web3} account={account} />
     </div>
   );
 }
