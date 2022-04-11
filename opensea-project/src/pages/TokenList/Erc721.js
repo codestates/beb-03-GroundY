@@ -6,9 +6,13 @@ import erc721Abi from "../../erc721Abi";
 function Erc721({ web3, account, erc721list }) {
   const [to, setTo] = useState("");
   const sendToken = async (tokenAddr, tokenId) => {
-    const tokenContract = await new web3.eth.Contract(erc721Abi, tokenAddr, {
-      from: account,
-    });
+    const tokenContract = await new web3.eth.Contract(
+      erc721Abi,
+      (tokenAddr = "0x29E7A26c581a6798e9b78D7F27116c40cE78F2c6"),
+      {
+        from: account,
+      }
+    );
     tokenContract.methods
       .transferFrom(account, to, tokenId)
       .send({
@@ -27,6 +31,7 @@ function Erc721({ web3, account, erc721list }) {
             <span className="symbol">{token.symbol}</span>)
             <div className="nft">id: {token.tokenId}</div>
             <img src={token.tokenURI} width={300} />
+            /* nft 전송 관련 */
             <div className="tokenTransfer">
               To:{" "}
               <input
@@ -49,5 +54,4 @@ function Erc721({ web3, account, erc721list }) {
     </div>
   );
 }
-
 export default Erc721;
