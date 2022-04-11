@@ -21,7 +21,7 @@ const Mint = ({web3, account}) => {
   }
 
   const submit = async () => {
-	// create ipfs object
+	// create ipfs object with infura gateway
 	const ipfs = create('https://ipfs.infura.io:5001/api/v0');
 
 	const added = await ipfs.add(image);
