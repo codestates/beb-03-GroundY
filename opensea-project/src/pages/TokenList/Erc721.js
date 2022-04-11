@@ -1,7 +1,9 @@
+// Import packages
 import React from "react";
 import { useState } from "react";
 
-import erc721Abi from "../../erc721Abi";
+// Import
+import erc721Abi from "../../abi/erc721Abi";
 
 function Erc721({ web3, account, erc721list }) {
   const [to, setTo] = useState("");
