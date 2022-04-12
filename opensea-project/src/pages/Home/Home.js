@@ -25,27 +25,80 @@ const Home = () => {
         <h1>Who Made?</h1>
         <div className="teammembers">
           Kwon
-          <div>Team Leader</div>
-          <ul>Project Leading</ul>
-          <ul>Minting Page</ul>
-          {/* <img src="깃허브 로고 이미지" alt=""></img> */}
+          <ul>Team Leader</ul>
+          <li>Project Setup, Management</li>
+          <li>Minting Page Implement</li>
+          <a
+            href="https://github.com/Robin-the-dev"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="images/GitHub-Mark-64px.png"
+              alt=""
+              height="20"
+              width="20"
+            ></img>
+          </a>
         </div>
         <div className="teammembers">
           Baek
-          <div>Team Member</div>
+          <ul>Team Member</ul>
+          <li>Page Routing</li>
+          <li>Tokenlist Page Implement</li>
+          <a href="https://github.com/BEB03" target="_blank" rel="noreferrer">
+            <img
+              src="images/GitHub-Mark-64px.png"
+              alt=""
+              height="20"
+              width="20"
+            ></img>
+          </a>
         </div>
         <div className="teammembers">
           Yang
-          <div>Team Member</div>
+          <ul>Team Member</ul>
+          <li>Deploy Smart Contract</li>
+          <li>Home Page Implement</li>
+          <a href="https://github.com/wh7787" target="_blank" rel="noreferrer">
+            <img
+              src="images/GitHub-Mark-64px.png"
+              alt=""
+              height="20"
+              width="20"
+            ></img>
+          </a>
         </div>
       </div>
       <div className="partner">
         <h1>Partners</h1>
-        <div>codestates</div>
-        <div>metamask</div>
+        <div>Codestates</div>
+        <div>MetaMask</div>
+        {/* <div>Kaikas</div> */}
       </div>
       <div className="contact">
         <h2>Contact</h2>
+        GitHub
+        <a
+          href="https://github.com/codestates/beb-03-GroundY"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            src="images/GitHub-Mark-64px.png"
+            alt=""
+            height="40"
+            width="40"
+          ></img>
+        </a>
+        Notion
+        <a
+          href="https://codestates.notion.site/1-7ce6f34197a14d99b71f49c7071d1ef8"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="images/notion-logo.png" alt="" height="40" width="40"></img>
+        </a>
       </div>
     </div>
   );
