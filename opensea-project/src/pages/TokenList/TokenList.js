@@ -3,8 +3,9 @@ import React from "react";
 import { useState } from "react";
 
 // import pages
-import Erc721 from "./Erc721";
+import Erc721 from "../../components/Erc721/Erc721";
 import erc721Abi from "../../abi/erc721Abi";
+import axios from "axios";
 
 function TokenList({ web3, account }) {
   const [erc721list, setErc721list] = useState([]);
@@ -16,6 +17,10 @@ function TokenList({ web3, account }) {
     const symbol = await tokenContract.methods.symbol().call();
     const totalSupply = await tokenContract.methods.totalSupply().call();
 
+    const metaData = function (tokenURI) {
+      return axios.get(tokenURI).then((res) => res.data);
+    };
+
     let arr = [];
     for (let i = 1; i <= totalSupply; i++) {
       arr.push(i);
@@ -23,9 +28,11 @@ function TokenList({ web3, account }) {
     for (let tokenId of arr) {
       let tokenOwner = await tokenContract.methods.ownerOf(tokenId).call();
       if (String(tokenOwner).toLowerCase() === account) {
-        let tokenURI = await tokenContract.methods.tokenURI(tokenId).call();
+        let NFTdata = await metaData(
+          await tokenContract.methods.tokenURI(tokenId).call()
+        );
         setErc721list((prevState) => {
-          return [...prevState, { name, symbol, tokenId, tokenURI }];
+          return [...prevState, { name, symbol, tokenId, NFTdata }];
         });
       }
     }
