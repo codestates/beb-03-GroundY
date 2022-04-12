@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({account, setAccount}) => {
+  const connectWallet = async () => {
+	const accounts = await window.ethereum.request({
+	  method: 'eth_requestAccounts'
+	});
+
+	setAccount(accounts[0]);
+  }
+
   return (
     <div>
       <Link to="/">
@@ -13,6 +21,10 @@ const NavBar = () => {
       <Link to="/mint">
         <button>Mint</button>
       </Link>
+	  <div>
+		<button onClick={() => {connectWallet();}}>Log in with Metamask</button>
+		<span>Address: {account}</span>
+	  </div>
     </div>
   );
 };
