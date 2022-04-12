@@ -6,25 +6,23 @@ const Home = () => {
       <div>Ground Y NFT Marketplace</div>
       <div className="About">
         <h1>Why Ground Y?</h1>
-        {/* <div>
+        <div>
           Mint your NFT
-          <img src="이미지업로드" alt="">
-            Upload your image
-          </img>
-          <img src="제목과 설명작성" alt="">
-            add a title and description
-          </img>
-          <img src="프로퍼티 설정" alt="">
-            customize your NFTs with properties
-          </img>
-        </div> */}
+          <img src="images/description1.png" alt="" height="300"></img>
+          Upload your image
+          <img src="images/description2.png" alt="" height="300"></img>
+          add a title and description
+          <img src="images/description3.png" alt="" height="300"></img>
+          customize your NFTs with properties
+        </div>
         <div>Check your NFT</div>
         <div>Send your NFT</div>
       </div>
       <div className="team">
         <h1>Who Made?</h1>
         <div className="teammembers">
-          Kwon
+          <img src="images/kwon.svg" alt="" height="200" width="200"></img>
+          <span className="name">Kwon</span>
           <ul>Team Leader</ul>
           <li>Project Setup, Management</li>
           <li>Minting Page Implement</li>
@@ -32,17 +30,11 @@ const Home = () => {
             href="https://github.com/Robin-the-dev"
             target="_blank"
             rel="noreferrer"
-          >
-            <img
-              src="images/GitHub-Mark-64px.png"
-              alt=""
-              height="20"
-              width="20"
-            ></img>
-          </a>
+          ></a>
         </div>
         <div className="teammembers">
-          Baek
+          <img src="images/baek.svg" alt="" height="200" width="200"></img>
+          <span className="name">Baek</span>
           <ul>Team Member</ul>
           <li>Page Routing</li>
           <li>Tokenlist Page Implement</li>
@@ -56,7 +48,8 @@ const Home = () => {
           </a>
         </div>
         <div className="teammembers">
-          Yang
+          <img src="images/yang.svg" alt="" height="200" width="200"></img>
+          <span className="name">Yang</span>
           <ul>Team Member</ul>
           <li>Deploy Smart Contract</li>
           <li>Home Page Implement</li>
