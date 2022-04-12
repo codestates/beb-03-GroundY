@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 
 // Import pages
+import "./Erc721.css";
 import erc721Abi from "../../abi/erc721Abi";
 
 function Erc721({ web3, account, erc721list }) {
@@ -27,13 +28,12 @@ function Erc721({ web3, account, erc721list }) {
   return (
     <div className="erc721list">
       {erc721list.map((token) => {
-        console.log(token);
         return (
           <div className="erc721token">
             <span className="name">Name : {token.name}</span>(
             <span className="symbol">{token.symbol}</span>)
             <div className="nft">id: {token.tokenId}</div>
-            <img src={token.NFTdata.image} width={300} />
+            <img className="nftimg" src={token.NFTdata.image} />
             <div className="tokenTransfer">
               To:{" "}
               <input
