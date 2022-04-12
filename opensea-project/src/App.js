@@ -20,14 +20,6 @@ function App() {
   const [web3, setWeb3] = useState();
   const [account, setAccount] = useState();
 
-  const connectWallet = async () => {
-    const accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
-    });
-
-    setAccount(accounts[0]);
-  };
-
   useEffect(() => {
     if (window.ethereum !== undefined) {
       try {
@@ -41,22 +33,12 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar account={account} setAccount={setAccount} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tokenlist" element={<TokenList web3={web3} account={account} />} />
         <Route path="/mint" element={<Mint web3={web3} account={account} />} />
       </Routes>
-
-      <button
-        className="metaConnect"
-        onClick={() => {
-          connectWallet();
-        }}
-      >
-        Connect metamask
-      </button>
-      <div className="userInfo">Address: {account}</div>
     </div>
   );
 }
