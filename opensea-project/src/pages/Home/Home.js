@@ -1,25 +1,32 @@
 import React from "react";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <div>
-      <div>Ground Y NFT Marketplace</div>
-      <div className="About">
-        <h1>Why Ground Y?</h1>
+    <div className="container">
+      <div id="title">Ground Y NFT Marketplace</div>
+      <h1>Why Ground Y?</h1>
+      <div className="about">
         <div>
-          Mint your NFT
-          <img src="images/description1.png" alt="" height="300"></img>
-          Upload your image
-          <img src="images/description2.png" alt="" height="300"></img>
-          add a title and description
-          <img src="images/description3.png" alt="" height="300"></img>
-          customize your NFTs with properties
+          <ul>Mint your NFT</ul>
+          <li>
+            <img src="images/description1.png" alt="" height="300"></img>
+            Upload your image
+          </li>
+          <li>
+            <img src="images/description2.png" alt="" height="300"></img>
+            add a title and description
+          </li>
+          <li>
+            <img src="images/description3.png" alt="" height="300"></img>
+            customize your NFTs with properties
+          </li>
         </div>
         <div>Check your NFT</div>
         <div>Send your NFT</div>
       </div>
+      <h1>Who Made?</h1>
       <div className="team">
-        <h1>Who Made?</h1>
         <div className="teammembers">
           <img src="images/kwon.svg" alt="" height="200" width="200"></img>
           <span className="name">Kwon</span>
@@ -30,7 +37,14 @@ const Home = () => {
             href="https://github.com/Robin-the-dev"
             target="_blank"
             rel="noreferrer"
-          ></a>
+          >
+            <img
+              src="images/GitHub-Mark-64px.png"
+              alt=""
+              height="20"
+              width="20"
+            ></img>
+          </a>
         </div>
         <div className="teammembers">
           <img src="images/baek.svg" alt="" height="200" width="200"></img>
