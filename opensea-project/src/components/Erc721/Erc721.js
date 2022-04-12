@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 
-// Import
+// Import pages
 import erc721Abi from "../../abi/erc721Abi";
 
 function Erc721({ web3, account, erc721list }) {
@@ -27,13 +27,13 @@ function Erc721({ web3, account, erc721list }) {
   return (
     <div className="erc721list">
       {erc721list.map((token) => {
+        console.log(token);
         return (
           <div className="erc721token">
-            Name: <span className="name">{token.name}</span>(
+            <span className="name">Name : {token.name}</span>(
             <span className="symbol">{token.symbol}</span>)
             <div className="nft">id: {token.tokenId}</div>
-            <img src={token.tokenURI} width={300} />
-            /* nft 전송 관련 */
+            <img src={token.NFTdata.image} width={300} />
             <div className="tokenTransfer">
               To:{" "}
               <input
