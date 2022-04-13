@@ -1,59 +1,61 @@
-// Import packages
 import React from "react";
+
+// Import packages
 import { useState } from "react";
+import styled from "styled-components";
 
-// Import pages
-import "./Erc721.css";
-import erc721Abi from "../../abi/erc721Abi";
+// Import components
+import Modal from "../Modal/Modal";
 
-function Erc721({ web3, account, erc721list }) {
-  const [to, setTo] = useState("");
-  const sendToken = async (tokenAddr, tokenId) => {
-    const tokenContract = await new web3.eth.Contract(
-      erc721Abi,
-      (tokenAddr = "0x29E7A26c581a6798e9b78D7F27116c40cE78F2c6"),
-      {
-        from: account,
-      }
-    );
-    tokenContract.methods
-      .transferFrom(account, to, tokenId)
-      .send({
-        from: account,
-      })
-      .on("receipt", (receipt) => {
-        setTo("");
-      });
+const Erc721list = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Erc721token = styled.div`
+  width: 30%;
+  overflow: auto;
+  margin: 1%;
+  border: 1px solid green;
+`;
+
+function Erc721({ web3, account, erc721list, newErc721addr }) {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
   };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
-    <div className="erc721list">
+    <Erc721list>
       {erc721list.map((token) => {
         return (
-          <div className="erc721token">
-            <span className="name">Name : {token.name}</span>(
+          <Erc721token>
+            <span className="name">{token.name}</span>(
             <span className="symbol">{token.symbol}</span>)
-            <div className="nft">id: {token.tokenId}</div>
-            <img className="nftimg" src={token.NFTdata.image} />
-            <div className="tokenTransfer">
-              To:{" "}
-              <input
-                type="text"
-                value={to}
-                onChange={(e) => {
-                  setTo(e.target.value);
-                }}
-              ></input>
-              <button
-                className="sendErc20Btn"
-                onClick={sendToken.bind(this, token.address, token.tokenId)}
-              >
-                send Token
-              </button>
-            </div>
-          </div>
+            <div className="nft">#{token.tokenId}</div>
+            <img
+              alt=""
+              className="nftimg"
+              src={token.NFTdata.image}
+              onClick={openModal}
+            />
+            <Modal
+              showModal={showModal}
+              closeModal={closeModal}
+              web3={web3}
+              account={account}
+              token={token}
+              newErc721addr={newErc721addr}
+            ></Modal>
+          </Erc721token>
         );
       })}
-    </div>
+    </Erc721list>
   );
 }
 export default Erc721;
