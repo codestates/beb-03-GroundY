@@ -1,5 +1,5 @@
 .container {
-  background-image: url("background1.png");
+  background-image: url("images/background4.png");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -7,29 +7,124 @@
 
 #title {
   font-size: 50px;
-  margin: 30px;
-  text-shadow: 3px 3px 3px rgb(162, 162, 162);
+  font-weight: 700;
+  margin-top: 60px;
+  text-shadow: 3px 3px 4px rgb(162, 162, 162);
+}
+
+h1 {
+  margin: 5% 0 2% 0;
 }
 
 .about {
   display: flex;
   flex-direction: column;
+  align-items: center;
   list-style: none;
-  justify-content: space-between;
+  font-size: 30pt;
+  font-weight: 600;
+  border: solid blanchedalmond 5pt;
+  border-radius: 20px;
+  margin: 5%;
+  background-color: rgba(255, 235, 205, 0.5);
+  padding: 5%;
+}
+
+.about li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about div {
+  margin-top: 20px;
+}
+
+.description {
+  font-size: 20pt;
+  font-weight: 400;
+}
+
+#desc1 {
+  margin-left: 30%;
+  margin-bottom: 100px;
+}
+
+#desc1 div {
+  margin-right: 10%;
+}
+
+#desc2 {
+  margin-right: 10%;
+  margin-bottom: 100px;
+}
+
+#desc2 div {
+  margin-left: 10%;
+}
+
+#desc3 {
+  margin-left: 10%;
+  margin-bottom: 100px;
+}
+
+#desc3 div {
+  margin-right: 10%;
 }
 
 .team {
-  margin-top: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .teammembers {
-  padding: 10px;
-  margin: auto;
-  display: flex;
+  padding: 20px;
+  margin: 20px 20px 20px 20px;
+  font-size: 16pt;
+  font-weight: 600;
+  display: inline;
   flex-direction: column;
-  position: relative;
   list-style: none;
   text-align: right;
+  border: solid rgba(255, 255, 255, 0.3) 3pt;
+  border-radius: 10px;
+}
+
+.teammembers li {
+  margin-bottom: 10px;
+  font-size: 12pt;
+  font-weight: 500;
+}
+
+.name {
+  text-align: center;
+  font-size: 30pt;
+  font-weight: 600;
+  display: block;
+  background-color: rgba(245, 235, 220, 0.5);
+  border: none;
+  border-radius: 7px;
+}
+
+.partner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.partner img {
+  margin: 2%;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.contact a {
+  margin: 0% 1% 0% 1%;
 }
