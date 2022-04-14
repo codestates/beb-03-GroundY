@@ -9,21 +9,23 @@ const Home = () => {
       <div className="about">
         <div>
           <ul>Mint your NFT</ul>
-          <li>
+          <li id="desc1">
+            <div className="description">Upload your image</div>
             <img src="images/description1.png" alt="" height="300"></img>
-            Upload your image
           </li>
-          <li>
+          <li id="desc2">
             <img src="images/description2.png" alt="" height="300"></img>
-            add a title and description
+            <div className="description">Add a title and description</div>
           </li>
-          <li>
+          <li id="desc3">
+            <div className="description">
+              Customize your NFTs with properties
+            </div>
             <img src="images/description3.png" alt="" height="300"></img>
-            customize your NFTs with properties
           </li>
         </div>
-        <div>Check your NFT</div>
-        <div>Send your NFT</div>
+        <ul>Check your NFT</ul>
+        <ul>Send your NFT</ul>
       </div>
       <h1>Who Made?</h1>
       <div className="team">
@@ -45,6 +47,10 @@ const Home = () => {
               width="20"
             ></img>
           </a>
+          <span>&nbsp;</span>
+          <img src="images/Linkedin_logo.png" alt="" height={20}></img>
+          <span>&nbsp;</span>
+          <img src="images/Instagram_logo.png" alt="" height={20}></img>
         </div>
         <div className="teammembers">
           <img src="images/baek.svg" alt="" height="200" width="200"></img>
@@ -60,6 +66,10 @@ const Home = () => {
               width="20"
             ></img>
           </a>
+          <span>&nbsp;</span>
+          <img src="images/Linkedin_logo.png" alt="" height={20}></img>
+          <span>&nbsp;</span>
+          <img src="images/Instagram_logo.png" alt="" height={20}></img>
         </div>
         <div className="teammembers">
           <img src="images/yang.svg" alt="" height="200" width="200"></img>
@@ -75,17 +85,21 @@ const Home = () => {
               width="20"
             ></img>
           </a>
+          <span>&nbsp;</span>
+          <img src="images/Linkedin_logo.png" alt="" height={20}></img>
+          <span>&nbsp;</span>
+          <img src="images/Instagram_logo.png" alt="" height={20}></img>
         </div>
       </div>
+      <h1>Partners</h1>
       <div className="partner">
-        <h1>Partners</h1>
-        <div>Codestates</div>
-        <div>MetaMask</div>
+        <img src="images/codestates.png" alt="" height="40"></img>
+        <img src="images/Metamask-logo.png" alt="" height="40"></img>
+        <img src="images/GitHub_Logo.png" alt="" height="50"></img>
         {/* <div>Kaikas</div> */}
       </div>
+      <h2>Contact</h2>
       <div className="contact">
-        <h2>Contact</h2>
-        GitHub
         <a
           href="https://github.com/codestates/beb-03-GroundY"
           target="_blank"
@@ -98,7 +112,6 @@ const Home = () => {
             width="40"
           ></img>
         </a>
-        Notion
         <a
           href="https://codestates.notion.site/1-7ce6f34197a14d99b71f49c7071d1ef8"
           target="_blank"
