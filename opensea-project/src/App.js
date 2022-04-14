@@ -19,6 +19,16 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
   const [web3, setWeb3] = useState();
   const [account, setAccount] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const connectWallet = async () => {
+	const accounts = await window.ethereum.request({
+	  method: 'eth_requestAccounts'
+	});
+
+	setAccount(accounts[0]);
+	setIsLoggedIn(true);
+  }
 
   useEffect(() => {
     if (window.ethereum !== undefined) {
@@ -33,7 +43,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar account={account} setAccount={setAccount} />
+      <NavBar account={account} connectWallet={connectWallet} isLoggedIn={isLoggedIn} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tokenlist" element={<TokenList web3={web3} account={account} />} />
