@@ -50,6 +50,7 @@ function SeeToken({ web3, account, token, newErc721addr }) {
         className="nftimg"
         src={token.NFTdata.image}
         onClick={openModal}
+        width={300}
       />
       <TokenName>{token.name}</TokenName>
       <TokenInfo>
