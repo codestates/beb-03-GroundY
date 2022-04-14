@@ -1,11 +1,15 @@
-// import packages
 import React from "react";
-import { useState } from "react";
 
-// import pages
-import Erc721 from "../../components/Erc721/Erc721";
-import erc721Abi from "../../abi/erc721Abi";
+// import packages
+import { useState } from "react";
+import styled from "styled-components";
 import axios from "axios";
+
+// import components
+import Erc721 from "../../components/Erc721/Erc721";
+
+// import ABI
+import erc721Abi from "../../abi/erc721Abi";
 
 function TokenList({ web3, account }) {
   const [erc721list, setErc721list] = useState([]);
@@ -50,7 +54,12 @@ function TokenList({ web3, account }) {
         ></input>
         <button onClick={addNewErc721Token}>add new erc721</button>
       </div>
-      <Erc721 web3={web3} account={account} erc721list={erc721list} />
+      <Erc721
+        web3={web3}
+        account={account}
+        erc721list={erc721list}
+        newErc721addr={newErc721addr}
+      />
     </div>
   );
 }
