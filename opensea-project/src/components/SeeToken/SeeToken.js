@@ -8,7 +8,7 @@ import Modal from "../Modal/Modal";
 
 const Erc721token = styled.div`
   width: 28vw;
-  height: 60vh;
+  height: 56vh;
   overflow: hidden;
   margin: 2.5vw;
   border: 2px solid rgba(177, 240, 226, 0.5); //mint
@@ -33,9 +33,9 @@ const TokenInfo = styled.div`
 `;
 
 const Img = styled.img`
-  max-width: 100%;
+  width: 380px;
+  height: auto;
   min-height: 80%;
-  /* width: 300px; */
 `;
 
 function SeeToken({ web3, account, token, newErc721addr }) {
