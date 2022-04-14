@@ -7,15 +7,21 @@ import axios from "axios";
 
 // import components
 import Erc721 from "../../components/Erc721/Erc721";
+import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
 
 // import ABI
 import erc721Abi from "../../abi/erc721Abi";
 
 function TokenList({ web3, account }) {
   const [erc721list, setErc721list] = useState([]);
-  const [newErc721addr, setNewErc721Addr] = useState();
+  const [newErc721addr, setNewErc721Addr] = useState(
+    "0xb66df44befEdc0Cc63CD80F9F08EFC99CB9451fe"
+  );
+  const [onLoading, setOnLoading] = useState();
 
   const addNewErc721Token = async () => {
+    setErc721list([]);
+
     const tokenContract = await new web3.eth.Contract(erc721Abi, newErc721addr);
     const name = await tokenContract.methods.name().call();
     const symbol = await tokenContract.methods.symbol().call();
@@ -24,6 +30,8 @@ function TokenList({ web3, account }) {
     const metaData = function (tokenURI) {
       return axios.get(tokenURI).then((res) => res.data);
     };
+
+    setOnLoading(true);
 
     let arr = [];
     for (let i = 1; i <= totalSupply; i++) {
@@ -40,26 +48,35 @@ function TokenList({ web3, account }) {
         });
       }
     }
+
+    setOnLoading(false);
   };
 
   return (
     <div className="tokenlist">
       <div className="newErc721">
+        <button onClick={addNewErc721Token}>View your GroundY NFT</button>
+        or
         <input
+          // value로 초깃값
           type="text"
           onChange={(e) => {
             setNewErc721Addr(e.target.value);
             // 입력받을 때마다 newErc721addr 갱신
           }}
         ></input>
-        <button onClick={addNewErc721Token}>add new erc721</button>
+        <button onClick={addNewErc721Token}>Enter ERC Contract Address!</button>
       </div>
-      <Erc721
-        web3={web3}
-        account={account}
-        erc721list={erc721list}
-        newErc721addr={newErc721addr}
-      />
+      {onLoading ? (
+        <LoadingIndicator />
+      ) : (
+        <Erc721
+          web3={web3}
+          account={account}
+          erc721list={erc721list}
+          newErc721addr={newErc721addr}
+        />
+      )}
     </div>
   );
 }
