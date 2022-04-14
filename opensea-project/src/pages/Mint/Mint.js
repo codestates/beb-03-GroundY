@@ -5,6 +5,7 @@ import {create} from 'ipfs-http-client';
 
 // import components
 import MintForm from '../../components/MintForm/MintForm';
+import MintModal from '../../components/MintForm/MintModal/MintModal';
 
 // import ABI
 import erc721Abi from '../../abi/erc721Abi';
@@ -13,6 +14,14 @@ const Mint = ({web3, account}) => {
   const [image, setImage] = useState(null);
   const [data, setData] = useState({name: '', description: ''});
   const [attributeValues, setAttributeValues] = useState([{trait_type: '', value: ''}]);
+
+  const [isModal, setIsModal] = useState(false);
+  const [isNoAccount, setIsNoAccount] = useState(false);
+
+  const closeModal = () => {
+	setIsModal(false);
+	setIsNoAccount(false);
+  }
 
   const handleData = (e) => {
 	const newData = {...data};
@@ -49,6 +58,11 @@ const Mint = ({web3, account}) => {
   }
 
   const submit = async () => {
+	setIsModal(true);
+	if(account === undefined) {
+	  setIsNoAccount(true);
+	  return;
+	}
 	// create ipfs object with infura gateway
 	const ipfs = create('https://ipfs.infura.io:5001/api/v0');
 
@@ -72,9 +86,10 @@ const Mint = ({web3, account}) => {
   }
 
   return (
-	<div>
+	<>
+	  {isModal ? <MintModal isNoAccount={isNoAccount} closeModal={closeModal} /> : null}
 	  <MintForm submit={submit} retrieveImage={retrieveImage} attributeValues={attributeValues} handleAttribute={handleAttribute} addAttribute={addAttribute} removeAttribute={removeAttribute} data={data} handleData={handleData} />
-	</div>
+	</>
   );
 }
 
