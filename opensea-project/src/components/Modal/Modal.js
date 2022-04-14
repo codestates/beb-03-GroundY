@@ -1,6 +1,5 @@
-import React from "react";
-
 // import packages
+import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -23,7 +22,7 @@ const ModalContainer = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   max-height: 80%;
-  width: 20rem;
+  width: 50%;
   height: 80%;
   padding: 16px;
   background: white;

@@ -1,9 +1,8 @@
+// import packages
 import React from "react";
-
-// Import packages
 import styled from "styled-components";
 
-// Import components
+// import components
 import SeeToken from "../SeeToken/SeeToken";
 
 const Erc721list = styled.div`
@@ -13,6 +12,7 @@ const Erc721list = styled.div`
 
 function Erc721({ web3, account, erc721list, newErc721addr }) {
   return (
+    // <div>
     <Erc721list>
       {erc721list.map((token) => {
         return (
@@ -25,6 +25,7 @@ function Erc721({ web3, account, erc721list, newErc721addr }) {
         );
       })}
     </Erc721list>
+    // </div>
   );
 }
 export default Erc721;
