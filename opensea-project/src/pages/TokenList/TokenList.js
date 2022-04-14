@@ -1,6 +1,6 @@
 // import packages
 import React from "react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -41,7 +41,7 @@ const Nftbutton = styled.button`
   font-size: 1.5rem;
   margin: 0.5rem;
 `;
-const Addressinput = styled.input`
+const Contractinput = styled.input`
   width: 25%;
   height: 3rem;
   border: 1px solid rgba(100, 100, 100, 0.2);
@@ -56,7 +56,6 @@ function TokenList({ web3, account }) {
     "0xb66df44befEdc0Cc63CD80F9F08EFC99CB9451fe"
   );
   const [onLoading, setOnLoading] = useState();
-  const addressInput = useRef();
 
   const addNewErc721Token = async () => {
     setErc721list([]);
@@ -98,14 +97,12 @@ function TokenList({ web3, account }) {
     }
   };
 
-  // const clearInput = () => {
-  //   addressInput.current.value = "";
-  // };
+  console.log(newErc721addr);
 
   return (
     <div>
       <Userinfo>
-        <img src={ethimg} alt="no image" width={32} />
+        <img src={ethimg} alt="" width={32} />
         <Address>
           {account ? account : <div>need to connect wallet</div>}
         </Address>
@@ -113,13 +110,13 @@ function TokenList({ web3, account }) {
       <div className="tokenlist">
         <Nftbutton
           onClick={() => {
+            setNewErc721Addr("0xb66df44befEdc0Cc63CD80F9F08EFC99CB9451fe");
             addNewErc721Token();
-            // clearInput();
           }}
         >
           View your GroundY NFT
         </Nftbutton>
-        <Addressinput
+        <Contractinput
           // value로 초깃값
           type="text"
           placeholder="or enter contract address here!"
@@ -129,10 +126,7 @@ function TokenList({ web3, account }) {
           onKeyDown={(e) => {
             enterKey(e);
           }}
-        ></Addressinput>
-        {/* <button onClick={addNewErc721Token}>
-            Enter ERC Contract Address!
-          </button> */}
+        ></Contractinput>
         <Hr></Hr>
         {onLoading ? (
           <LoadingIndicator account={account} />

@@ -14,13 +14,14 @@ function Erc721({ web3, account, erc721list, newErc721addr }) {
   return (
     // <div>
     <Erc721list>
-      {erc721list.map((token) => {
+      {erc721list.map((token, index) => {
         return (
           <SeeToken
             token={token}
             web3={web3}
             account={account}
             newErc721addr={newErc721addr}
+            key={index}
           ></SeeToken>
         );
       })}

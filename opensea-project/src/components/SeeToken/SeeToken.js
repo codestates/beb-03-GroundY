@@ -32,6 +32,12 @@ const TokenInfo = styled.div`
   padding: 0 1rem 0 1rem;
 `;
 
+const Img = styled.img`
+  max-width: 100%;
+  min-height: 80%;
+  /* width: 300px; */
+`;
+
 function SeeToken({ web3, account, token, newErc721addr }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -45,12 +51,11 @@ function SeeToken({ web3, account, token, newErc721addr }) {
 
   return (
     <Erc721token>
-      <img
+      <Img
         alt=""
         className="nftimg"
         src={token.NFTdata.image}
         onClick={openModal}
-        width={300}
       />
       <TokenName>{token.name}</TokenName>
       <TokenInfo>

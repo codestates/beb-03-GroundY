@@ -28,6 +28,7 @@ const ModalContainer = styled.div`
   background: white;
   border-radius: 10px;
   text-align: center;
+  max-width: 100%;
 `;
 
 function Modal({ showModal, closeModal, web3, account, token, newErc721addr }) {
