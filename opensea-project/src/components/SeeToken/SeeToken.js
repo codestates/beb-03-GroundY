@@ -8,7 +8,7 @@ import Modal from "../Modal/Modal";
 
 const Erc721token = styled.div`
   width: 28vw;
-  height: 60vh;
+  height: 56vh;
   overflow: hidden;
   margin: 2.5vw;
   border: 2px solid rgba(177, 240, 226, 0.5); //mint
@@ -32,6 +32,12 @@ const TokenInfo = styled.div`
   padding: 0 1rem 0 1rem;
 `;
 
+const Img = styled.img`
+  width: 380px;
+  height: auto;
+  min-height: 80%;
+`;
+
 function SeeToken({ web3, account, token, newErc721addr }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -45,7 +51,7 @@ function SeeToken({ web3, account, token, newErc721addr }) {
 
   return (
     <Erc721token>
-      <img
+      <Img
         alt=""
         className="nftimg"
         src={token.NFTdata.image}
@@ -62,6 +68,8 @@ function SeeToken({ web3, account, token, newErc721addr }) {
         account={account}
         token={token}
         newErc721addr={newErc721addr}
+        TokenInfo={TokenInfo}
+        TokenName={TokenName}
       ></Modal>
     </Erc721token>
   );
