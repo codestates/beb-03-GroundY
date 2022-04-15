@@ -44,7 +44,7 @@ contract GroundYNFTs is ERC721URIStorage, Ownable, ERC721Enumerable {
         return super.tokenURI(tokenId);
     }
     
-    function mintNFT(address recipient, string memory URI) public onlyOwner returns (uint256) {
+    function mintNFT(address recipient, string memory URI) public returns (uint256) {
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
