@@ -17,24 +17,24 @@ const Mint = ({web3, account}) => {
 
   const [isModal, setIsModal] = useState(false);
   const [isNoAccount, setIsNoAccount] = useState(false);
+  const [isNoInfo, setIsNoInfo] = useState(false);
 
   const closeModal = () => {
 	setIsModal(false);
 	setIsNoAccount(false);
+	setIsNoInfo(false);
   }
 
   const handleData = (e) => {
 	const newData = {...data};
 	newData[e.target.name] = e.target.value;
 	setData(newData);
-	console.log(data);
   }
 
   const handleAttribute = (e, idx) => {
 	const newAttributes = [...attributeValues];
 	newAttributes[idx][e.target.name] = e.target.value;
 	setAttributeValues(newAttributes);
-	console.log(attributeValues);
   }
 
   const addAttribute = () => {
@@ -63,6 +63,10 @@ const Mint = ({web3, account}) => {
 	  setIsNoAccount(true);
 	  return;
 	}
+	if(image === null || data.name === '') {
+	  setIsNoInfo(true);
+	  return;
+	}
 	// create ipfs object with infura gateway
 	const ipfs = create('https://ipfs.infura.io:5001/api/v0');
 
@@ -73,7 +77,7 @@ const Mint = ({web3, account}) => {
 
 	const metadataAdded = await ipfs.add(metadataJson);
 	const metadataUrl = `https://ipfs.infura.io/ipfs/${metadataAdded.path}`;
-	console.log(metadataUrl);
+	
 	const tokenContract = new web3.eth.Contract(erc721Abi, '0xb66df44befEdc0Cc63CD80F9F08EFC99CB9451fe', {from: account}); 
 	
 	tokenContract.methods
@@ -87,7 +91,7 @@ const Mint = ({web3, account}) => {
 
   return (
 	<>
-	  {isModal ? <MintModal isNoAccount={isNoAccount} closeModal={closeModal} /> : null}
+	  {isModal ? <MintModal isNoAccount={isNoAccount} isNoInfo={isNoInfo} closeModal={closeModal} /> : null}
 	  <MintForm submit={submit} retrieveImage={retrieveImage} attributeValues={attributeValues} handleAttribute={handleAttribute} addAttribute={addAttribute} removeAttribute={removeAttribute} data={data} handleData={handleData} />
 	</>
   );
