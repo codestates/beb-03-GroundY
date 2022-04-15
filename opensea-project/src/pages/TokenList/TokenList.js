@@ -7,6 +7,7 @@ import axios from "axios";
 // import components
 import Erc721 from "../../components/Erc721/Erc721";
 import LoadingIndicator from "../../components/LoadingIndicator/LoadingIndicator";
+import WarningModal from "../../components/WarningModal/WarningModal";
 
 // import ABI
 import erc721Abi from "../../abi/erc721Abi";
@@ -56,6 +57,7 @@ function TokenList({ web3, account }) {
     "0xb66df44befEdc0Cc63CD80F9F08EFC99CB9451fe"
   );
   const [onLoading, setOnLoading] = useState();
+  const [isConnect, setIsConnect] = useState(true);
 
   const addNewErc721Token = async () => {
     setErc721list([]);
@@ -97,7 +99,14 @@ function TokenList({ web3, account }) {
     }
   };
 
-  console.log(newErc721addr);
+  const makeOne = () => {
+    setNewErc721Addr("0xb66df44befEdc0Cc63CD80F9F08EFC99CB9451fe");
+    addNewErc721Token();
+  };
+
+  const closeModal = () => {
+    setIsConnect(true);
+  };
 
   return (
     <div>
@@ -108,12 +117,7 @@ function TokenList({ web3, account }) {
         </Address>
       </Userinfo>
       <div className="tokenlist">
-        <Nftbutton
-          onClick={() => {
-            setNewErc721Addr("0xb66df44befEdc0Cc63CD80F9F08EFC99CB9451fe");
-            addNewErc721Token();
-          }}
-        >
+        <Nftbutton onClick={() => (account ? makeOne() : setIsConnect(false))}>
           View your GroundY NFT
         </Nftbutton>
         <Contractinput
@@ -128,6 +132,9 @@ function TokenList({ web3, account }) {
           }}
         ></Contractinput>
         <Hr></Hr>
+        {isConnect ? null : (
+          <WarningModal closeModal={closeModal}></WarningModal>
+        )}
         {onLoading ? (
           <LoadingIndicator account={account} />
         ) : (
