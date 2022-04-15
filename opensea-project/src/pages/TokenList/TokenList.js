@@ -127,9 +127,7 @@ function TokenList({ web3, account }) {
           onChange={(e) => {
             setNewErc721Addr(e.target.value);
           }}
-          onKeyDown={(e) => {
-            enterKey(e);
-          }}
+          onKeyDown={(e) => (account ? enterKey(e) : setIsConnect(false))}
         ></Contractinput>
         <Hr></Hr>
         {isConnect ? null : (
