@@ -68,6 +68,8 @@ function SeeToken({ web3, account, token, newErc721addr }) {
         account={account}
         token={token}
         newErc721addr={newErc721addr}
+        TokenInfo={TokenInfo}
+        TokenName={TokenName}
       ></Modal>
     </Erc721token>
   );
